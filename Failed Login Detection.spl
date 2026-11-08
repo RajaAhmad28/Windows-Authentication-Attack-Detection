@@ -1,0 +1,7 @@
+index=* EventCode=4625
+| bin _time span=5m
+| stats count AS Failed_Attempts by _time
+| where Failed_Attempts >= 2
+| sort - Failed_Attempts
+
+This query help us to find windows failed login event  and identify five-minute time intervals in which two or more failed login attempts occur.
